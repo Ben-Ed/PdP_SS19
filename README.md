@@ -2,7 +2,7 @@
 
 # Programming in Practise - Linked List
 
-Project assignment in the course "Programming in Practice" from summer semester 2019. The task was to implement a singly linked list with several features in C. A linked list is a dynamic data structure, which can have elements added and removed without the need to create a fixed lenght beforehand. The single elements are connected one-way via a pointer, which references the following element. 
+Project assignment in the course "Programming in Practice" from summer semester 2019 during my Bachelor in Business Informatics. The task was to implement a singly linked list with several features in C. A linked list is a dynamic data structure, which can have elements added and removed without the need to create a fixed lenght beforehand. The single elements are connected one-way via a pointer, which references the following element. 
 Final Mark: 20/20 Points.
 
 ## Tasks
