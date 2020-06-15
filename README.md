@@ -184,47 +184,27 @@ The following function implements a bubble sort algorithm. Our m decides whether
 ```c
   void sort(list * l, int m) {            
      
-  list tmp = *l;                               //Pointer tmp zeigt wie *l aufs erste Listenelement
-
-
-   if(m < 0) {                                 //bei negativen Parametern wird die gesamte Liste durchgegangen, um die negativen Zahlen in ihre Betr�ge umzuwandeln
+  list tmp = *l;            
+  
+   if(m < 0) {
 
      tmp = *l;
-
-     while(tmp != NULL) {                     //durchl�uft die Liste, bis tmp auf Null zeigt => Listenende
-    
-      if(tmp->value < 0) {                    //falls der aktuelle Wert negativ ist
-
-      tmp->value = tmp->value / (-1);         //wird er in den Betrag gewandelt. x = -x / (-1)
-
-      }
-
-      tmp = tmp->next;                        //tmp zieht ein Listenelement weiter
-
-     }
-      tmp = *l;                               //tmp zeigt letztendlich wieder an den Listenanfang
+     while(tmp != NULL) {                     
+  
+      if(tmp->value < 0) tmp->value = tmp->value / (-1);   //turning the values into the absolute positive values
+      tmp = tmp->next;                       
+      tmp = *l;       
    }
 
-
-
-while(* l != NULL && (*l)->next != NULL){      //solange die Liste nicht am Ende ist (wenn beide Pointer auf NUll zeigen)
+while(* l != NULL && (*l)->next != NULL){ 
     
-		if((*l)->next->value >= (*l)->value){      //Ist der folgende Wert gr��er oder gleich des aktuellen Werts, m�ssen die jeweiligen 2 Werte nicht getauscht weerden
-		
-			*l=(*l)->next;                            //der Pointer *l r�ckt ein Listenelement weiter
-		
-		}
-		
-		else {                                     //ansonsten ist der folgende Wert kleiner als der aktuelle => die Werte m�ssen getauscht werden
-		
-		swap(&(*l)->value, &(*l)->next->value);    //aufruf der Hilfsfunktion swap um die beiden Werte zu vertauschen
-		
-		*l = tmp;                                  //*l zeigt nun wieder auf den Listenanfang, damit die Liste erneut von vorne beginnen kann, die Elemente zu untersuchen
-		
+	if((*l)->next->value >= (*l)->value) *l=(*l)->next;
+	else {
+		swap(&(*l)->value, &(*l)->next->value);    //the following value is < than the current one, hence we need to swap them
+		*l = tmp;              
 		}
 	}
-	
-	*l = tmp;                                    //*l zeigt nun wieder an den Listenanfang
+	*l = tmp;       
 }
 ```
 If we iterate with l and tmp being one ahead, we are able to both delete e and connect the two neighbouring elements. 
