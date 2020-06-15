@@ -103,7 +103,6 @@ As long as the pointer does not point to null (meaning it would be the end of th
 The rest of the first exercise can be found in the full solution. <br> <br />
 
 ---
-<br>
 
 #### Exercise 2
 
