@@ -60,6 +60,7 @@ void insert(int v, list * l) {
 ```
 With insert, we can add new list elements to the beginning within the given list. The original first element will move to the second position, which means it is not the beginning of the list anymore. Our new beginning of the list, the element we just added, is referenced by the name of the list. <br> <br />
 
+---
 
 > **int delete_head(list * l)**
 
@@ -79,20 +80,21 @@ int delete_head(list * l) {
 ```
 After we delete the first element (the head), the list now points to the new first element, our prior second element. <br> <br />
 
-> **int delete_head(list * l)**
+---
 
-The next function deletes the first element of a given *list* **l**. 
+> **int print_list(list l)**
+
+The following shows how we can iterate through the *list* **l**. 
 ```c
-int delete_head(list * l) {
-
-  if (*l == NULL) return -1;           //returning -1 if the list is empty
-  
-  list old = *l;                                 
-  *l = old->next;                      //*l is now a pointer on the second element (our new first element)
-
-  free(old);                           //we free the *old* pointer
-
-  return 0;    
+void print_list(list  l){	//alle ELemente der Liste ausgeben
+	
+	if (l == NULL) printf("leer");
+	
+	else
+		while (l != NULL){  
+			printf("%d ", l->value);	
+			l = l->next;	
+		}	
 }
 ```
-After we delete the first element (the head), the list now points to the new first element, our prior second element. <br> <br />
+As long as the pointer does not point to null (meaning it would be the end of the list), we iterate through every item via our pointers. <br> <br />
