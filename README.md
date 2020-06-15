@@ -40,7 +40,7 @@ typedef listelement * list;
 *Value* is, surprisingly, the value of each node, while *next* is a pointer to another list element / node. Since we want the pointer to reference another structure, it needs to be declared with *struct le*.
 Additionally, we rename our structure to *listelement* and the **pointer** to our listelement *list*. It is important to note that list is a pointer, as it is a references the first node of a list. <br> <br />
 
-
+--- 
 #### Exercise 1
 
 > **void insert (int v, list * l)**
@@ -103,7 +103,7 @@ As long as the pointer does not point to null (meaning it would be the end of th
 The rest of the first exercise can be found in the full solution. <br> <br />
 
 ---
-
+<br>
 #### Exercise 2
 
 > **int delete_pos(list * l, int pos)**
@@ -132,7 +132,7 @@ int delete_pos(list * l, int position) {
 ```
 We iterate through the list until we reach our designated goal - the element which is going to be deleted. However, we do not stop right on the position, but one position before. We do this to close the beforementioned rift we would create. 
 
-<br> <br />
+<br>
 
 ---
 
