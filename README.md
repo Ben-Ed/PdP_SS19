@@ -23,7 +23,7 @@ Project assignment in the course "Programming in Practice" from summer semester 
 
 
 ## Solution
-The full solution is uploaded, too. However, I will only discuss the crucial parts. Also, bear in mind that the full solution is in german. 
+The full solution (C_Project_SS19) is uploaded, too. However, I will only discuss the crucial parts. Also, bear in mind that the full solution is in german. 
 
 ### Starting with the fundamentals
 
