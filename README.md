@@ -25,7 +25,7 @@ Project assignment in the course "Programming in Practice" from summer semester 
 ## Solution
 The full solution is uploaded, too. However, I will only discuss the crucial parts. Also, bear in mind that the full solution is in german. 
 
-#### Starting with the fundamentals
+### Starting with the fundamentals
 
 We start with creating the single element of a list itself, called structure or compound datatype. 
 ```c
@@ -41,7 +41,7 @@ typedef listelement * list;
 Additionally, we rename our structure to *listelement* and the **pointer** to our listelement *list*. It is important to note that list is a pointer, as it is a references the first node of a list. <br> <br />
 
 --- 
-#### Exercise 1
+### Exercise 1
 
 > **void insert (int v, list * l)**
 
@@ -104,7 +104,7 @@ The rest of the first exercise can be found in the full solution. <br> <br />
 
 ---
 
-#### Exercise 2
+### Exercise 2
 
 > **int delete_pos(list * l, int pos)**
 
