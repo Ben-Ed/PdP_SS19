@@ -1,12 +1,5 @@
 /* C-Projekt
 
-Alexander Shervud - 792280
-Bennet Santelmann - 794437
-
-*/
-
-
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -33,17 +26,17 @@ typedef listelement * list;                  //Umbenennung von listelement * in 
 //-----------------------------------------------
 
 
-//Funktionen f¸r die einfach verkettete Liste. Aufgabe 1)
+//Funktionen f√ºr die einfach verkettete Liste. Aufgabe 1)
 
 
 //-----------------------------------------------
 
 
-// A) void_insert. F¸gt neue, erste Listenelement zur Liste hinzu.
+// A) void_insert. F√ºgt neue, erste Listenelement zur Liste hinzu.
 void insert(int v, list * l) {
 
   listelement * new;                            //neues Listenelement. => new ist Pointer auf ein Listenelement
-  new = malloc(sizeof(listelement));            //Speicherreservierung f¸r new
+  new = malloc(sizeof(listelement));            //Speicherreservierung f√ºr new
 
   new->value = v;                               //der Wert (value) von new wird v zugewiesen
   new->next = *l;                               //next (Pointer) von new zeigt jetzt ans Ende der Liste => NULL, da *l dort vorher drauf gezeigt hat
@@ -53,7 +46,7 @@ void insert(int v, list * l) {
 
 
 
-// B) int delete_head. Lˆscht das erste Listenelement einer Liste.
+// B) int delete_head. L√∂scht das erste Listenelement einer Liste.
 int delete_head(list * l) {
 
   if (*l == NULL) return -1;                     //falls die Liste leer ist (== falls *l auf NULL zeigt), return -1
@@ -61,42 +54,42 @@ int delete_head(list * l) {
   list old = *l;                                 //Pointer old aufs erste Listenelement von list l
   *l = old->next;                                //*l ist nun ein Pointer aufs 2. Listenelement (old->next)
 
-  free(old);                                     //der Pointer aufs 1. Listenelement wird gelˆscht / freed
+  free(old);                                     //der Pointer aufs 1. Listenelement wird gel√∂scht / freed
 
-  return 0;                                      //R¸ckgabe von 0, falls es keine Komplikationen gab
+  return 0;                                      //R√ºckgabe von 0, falls es keine Komplikationen gab
 }
 
 
 
-// C) void delete_all. Lˆscht die gesamte Liste.
+// C) void delete_all. L√∂scht die gesamte Liste.
 void delete_all(list l) {
 
-  list next;                                     //Pointer next auf listenelement, um 2 Zeiger zu haben, mit denen man versetzt vorr¸cken kann
+  list next;                                     //Pointer next auf listenelement, um 2 Zeiger zu haben, mit denen man versetzt vorr√ºcken kann
 
   while (l != NULL) {                            //solange die Liste nicht am Ende ist
 
     next = l->next;                             //der Pointer next zeigt nun aufs Folgeelement
 
-    free(l);                                    //der Speicherplatz f¸r l wird freigegeben
+    free(l);                                    //der Speicherplatz f√ºr l wird freigegeben
 
-    l = next;                                   //der Pointer l r¸ckt nun nach und zeigt aufs gleiche Listenelement wie next
+    l = next;                                   //der Pointer l r√ºckt nun nach und zeigt aufs gleiche Listenelement wie next
   }
 }
 
 
 
-// D) int lenght. Gibt die L‰nge der Liste zur¸ck.
+// D) int lenght. Gibt die L√§nge der Liste zur√ºck.
 int lenght(list l) {
 
-  int counter;                                  //Deklarierung eines Z‰hlers, der die L‰nge darstellt
+  int counter;                                  //Deklarierung eines Z√§hlers, der die L√§nge darstellt
 
   while (l != NULL) {                           //solange die Liste nicht am Ende ist
 
-    counter++;                                  //der Z‰hler wird um 1 erhˆht
+    counter++;                                  //der Z√§hler wird um 1 erh√∂ht
     l = l->next;                                //der Pointer l zeigt nun aufs folgeelement
   } 
 
-  return counter;                               //gibt die L‰nge der Liste zur¸ck
+  return counter;                               //gibt die L√§nge der Liste zur√ºck
 }
 
 
@@ -124,38 +117,38 @@ void print_list(list  l){	//alle ELemente der Liste ausgeben
 //-----------------------------------------------
 
 
-//Funktionen f¸r die einfach verkettete Liste. Aufgabe 2)
+//Funktionen f√ºr die einfach verkettete Liste. Aufgabe 2)
 
 
 //-----------------------------------------------
 
 
 
-//int delete_pos(list * l, int position). Lˆscht das Listenelement aus der Liste auf der Position "position".
+//int delete_pos(list * l, int position). L√∂scht das Listenelement aus der Liste auf der Position "position".
 int delete_pos(list * l, int position) {
 
-  if (position == 0){                             //falls das 1. Listenelement gelˆscht werden soll, wird die Funktion delete_head aufgerufen
+  if (position == 0){                             //falls das 1. Listenelement gel√∂scht werden soll, wird die Funktion delete_head aufgerufen
       delete_head(l);
   }
 
-  if (position < 0 | position > (lenght(*l)-1)) return -1;  //falls die Position nicht in der Liste ist. Liste beginnt bei 0 und letztes Element ist L‰nge - 1. Alles darunter, bzw. dar¸ber ist auﬂerhalb des Liste
+  if (position < 0 | position > (lenght(*l)-1)) return -1;  //falls die Position nicht in der Liste ist. Liste beginnt bei 0 und letztes Element ist L√§nge - 1. Alles darunter, bzw. dar√ºber ist au√üerhalb des Liste
 
   else {
-    if (*l == NULL) return -1;                    //falls die Liste leer ist, gib -1 zur¸ck
+    if (*l == NULL) return -1;                    //falls die Liste leer ist, gib -1 zur√ºck
 
     int count = 1;                                //initialisierung einer count variable, um bis zur Position zu gelangen
     list tmp = *l;
-    while(count < position) {                     //solange es nicht an der gew¸nschten Position ist, wird der Pointer weiter bewegt. Stoppt eine Stelle vor der gew¸nschten Position, an der das Listenelement entfernt werden soll
+    while(count < position) {                     //solange es nicht an der gew√ºnschten Position ist, wird der Pointer weiter bewegt. Stoppt eine Stelle vor der gew√ºnschten Position, an der das Listenelement entfernt werden soll
 
         tmp = tmp->next;                            //Pointer zeigt nun aufs Folgeelement
-        count++;                                    //count wird erhˆht
+        count++;                                    //count wird erh√∂ht
 
     }
     
-    list dlt = tmp->next;                            //dlt wollen wir lˆschen und tmp h‰lt auf dem counter, also eine Positon vorher demnach muss dlt einen weiter
-    tmp->next = dlt->next;                           // tmp->next = dlt wollen wir lˆschen dementsprech muss tmp mit dem Element nach dlt verbunden werden damit die Liste bleibt
+    list dlt = tmp->next;                            //dlt wollen wir l√∂schen und tmp h√§lt auf dem counter, also eine Positon vorher demnach muss dlt einen weiter
+    tmp->next = dlt->next;                           // tmp->next = dlt wollen wir l√∂schen dementsprech muss tmp mit dem Element nach dlt verbunden werden damit die Liste bleibt
   
-    free(dlt);                                       // dlt wird gelˆscht
+    free(dlt);                                       // dlt wird gel√∂scht
   }
   return 0; 
 } 
@@ -165,16 +158,16 @@ int delete_pos(list * l, int position) {
 
 //-----------------------------------------------
 
-//Funktionen f¸r die einfach verkettete Liste. Aufgabe 3)
+//Funktionen f√ºr die einfach verkettete Liste. Aufgabe 3)
 
 //-----------------------------------------------
 
-//int delete_elem(list * l, int e). Lˆscht das erste Vorkommen von e in der Liste.
+//int delete_elem(list * l, int e). L√∂scht das erste Vorkommen von e in der Liste.
 int delete_elem(list * l, int e) {
 
-if((*l)->value == e) {                          //falls das erste Listenelement das zu entfernende Listenelement e ist, wird die Funktion delete_head ausgef¸hrt.
+if((*l)->value == e) {                          //falls das erste Listenelement das zu entfernende Listenelement e ist, wird die Funktion delete_head ausgef√ºhrt.
 
-  delete_head(l);                               //lˆscht das erste Listenelement
+  delete_head(l);                               //l√∂scht das erste Listenelement
   
 }
 
@@ -190,7 +183,7 @@ while((*l)->next != NULL) {                             //solange die Liste nich
 
   if(tmp->value == e) {                         //falls tmp (bzw. das folgeelement) den gesuchten Wert hat
 
-    (*l)->next = tmp->next;                             //*l zeigt nun auf das ¸bern‰chste Element (folgeelement von tmp), damit es keinen Bruch in der einfach verketteten Liste gibt
+    (*l)->next = tmp->next;                             //*l zeigt nun auf das √ºbern√§chste Element (folgeelement von tmp), damit es keinen Bruch in der einfach verketteten Liste gibt
 
     free(tmp);                                  //Freigabe des reservierten Speicherplatzes von tmp (dem Listenelement)
 
@@ -202,7 +195,7 @@ while((*l)->next != NULL) {                             //solange die Liste nich
 
   *l = tmp;                                     //*l zieht auf und zeigt jetzt auf das gleiche Listenelement wie tmp. So bewegen sich *l und tmp um 1 versetzt durch die Liste, bis eine der beiden IF Clauses zutrifft
 
-  if((*l)->next == NULL) {                                //falls die Liste am Ende ist und das gesuchte Element e nicht vorkam, wird -1 zur¸ckgegeben. Auﬂerdem wird *l wird auf den Listenanfang gesetzt
+  if((*l)->next == NULL) {                                //falls die Liste am Ende ist und das gesuchte Element e nicht vorkam, wird -1 zur√ºckgegeben. Au√üerdem wird *l wird auf den Listenanfang gesetzt
 
     *l = backup;
     return -1;                                 
@@ -218,11 +211,11 @@ return 0;
 
 //-----------------------------------------------
 
-//Funktionen f¸r die einfach verkettete Liste. Aufgabe 4)
+//Funktionen f√ºr die einfach verkettete Liste. Aufgabe 4)
 
 //-----------------------------------------------
 
-//void sort(list * l, int m). Sortiert die Liste nach dem Verfahren "Insertion Sort". Bei positivem Parameter m (oder 0) wird die Liste aufsteigend sortiert, ansonsten werden die Betr‰ge der Liste sortiert.
+//void sort(list * l, int m). Sortiert die Liste nach dem Verfahren "Insertion Sort". Bei positivem Parameter m (oder 0) wird die Liste aufsteigend sortiert, ansonsten werden die Betr√§ge der Liste sortiert.
 
 
 void swap(int * x, int * y){                    //Hilfsfunktion um 2 Elemente der Liste zu vertauschen
@@ -243,11 +236,11 @@ void swap(int * x, int * y){                    //Hilfsfunktion um 2 Elemente de
   list tmp = *l;                               //Pointer tmp zeigt wie *l aufs erste Listenelement
 
 
-   if(m < 0) {                                 //bei negativen Parametern wird die gesamte Liste durchgegangen, um die negativen Zahlen in ihre Betr‰ge umzuwandeln
+   if(m < 0) {                                 //bei negativen Parametern wird die gesamte Liste durchgegangen, um die negativen Zahlen in ihre Betr√§ge umzuwandeln
 
      tmp = *l;
 
-     while(tmp != NULL) {                     //durchl‰uft die Liste, bis tmp auf Null zeigt => Listenende
+     while(tmp != NULL) {                     //durchl√§uft die Liste, bis tmp auf Null zeigt => Listenende
     
       if(tmp->value < 0) {                    //falls der aktuelle Wert negativ ist
 
@@ -265,13 +258,13 @@ void swap(int * x, int * y){                    //Hilfsfunktion um 2 Elemente de
 
 while(* l != NULL && (*l)->next != NULL){      //solange die Liste nicht am Ende ist (wenn beide Pointer auf NUll zeigen)
     
-		if((*l)->next->value >= (*l)->value){      //Ist der folgende Wert grˆﬂer oder gleich des aktuellen Werts, m¸ssen die jeweiligen 2 Werte nicht getauscht weerden
+		if((*l)->next->value >= (*l)->value){      //Ist der folgende Wert gr√∂√üer oder gleich des aktuellen Werts, m√ºssen die jeweiligen 2 Werte nicht getauscht weerden
 		
-			*l=(*l)->next;                            //der Pointer *l r¸ckt ein Listenelement weiter
+			*l=(*l)->next;                            //der Pointer *l r√ºckt ein Listenelement weiter
 		
 		}
 		
-		else {                                     //ansonsten ist der folgende Wert kleiner als der aktuelle => die Werte m¸ssen getauscht werden
+		else {                                     //ansonsten ist der folgende Wert kleiner als der aktuelle => die Werte m√ºssen getauscht werden
 		
 		swap(&(*l)->value, &(*l)->next->value);    //aufruf der Hilfsfunktion swap um die beiden Werte zu vertauschen
 		
@@ -304,7 +297,7 @@ int main(void) {
  
     list testliste = NULL;                     //Initialisierung einer Testliste
     
-    insert(-2, &testliste);                    //einf¸gen der Werte 
+    insert(-2, &testliste);                    //einf√ºgen der Werte 
     insert(10, &testliste);
     insert(32, &testliste);
     insert(0, &testliste);
@@ -315,25 +308,25 @@ int main(void) {
     printf("###### Zu Beginn #####\n");
     printf("Aktuelle Liste: ");
     print_list(testliste);
-    printf("\nAktuelle Listenl‰nge: %d\n", lenght(testliste));
+    printf("\nAktuelle Listenl√§nge: %d\n", lenght(testliste));
 
     printf("\n\n##### Nach Aufruf der Funktion delete_head #####\n");
     delete_head(&testliste);
     printf("Aktuelle Liste: ");
     print_list(testliste);
-    printf("\nAktuelle Listenl‰nge: %d\n", lenght(testliste));
+    printf("\nAktuelle Listenl√§nge: %d\n", lenght(testliste));
 
     printf("\n\n##### Nach Aufruf der Funktion delete_all #####\n");
     delete_all(testliste);
     printf("Aktuelle Liste: ");
     print_list(testliste);
-    printf("\nAktuelle Listenl‰nge: %d\n", lenght(testliste));
-    printf("Da es sich bei delete_all um die unsichere Variante handelt (von ha1.pdf vorgegeben), zeigen die Pointer auf zuf‰llige Adresse und deren Werte\n");
+    printf("\nAktuelle Listenl√§nge: %d\n", lenght(testliste));
+    printf("Da es sich bei delete_all um die unsichere Variante handelt (von ha1.pdf vorgegeben), zeigen die Pointer auf zuf√§llige Adresse und deren Werte\n");
 
 
     list testliste2 = NULL;                     //Initialisierung einer 2. Testliste
     
-    insert(4, &testliste2);                    //einf¸gen der Werte 
+    insert(4, &testliste2);                    //einf√ºgen der Werte 
     insert(-25, &testliste2);
     insert(0, &testliste2);
     insert(22, &testliste2);
@@ -348,31 +341,31 @@ int main(void) {
     printf("###### Zu Beginn #####\n");
     printf("Aktuelle Liste: ");
     print_list(testliste2);
-    printf("\nAktuelle Listenl‰nge: %d\n", lenght(testliste2));
+    printf("\nAktuelle Listenl√§nge: %d\n", lenght(testliste2));
 
     printf("\n\n###### Nach Funktion delete_pos. Aufgabe 2) #####\n");
     delete_pos(&testliste2, 5);
     printf("Aktuelle Liste: ");
     print_list(testliste2);
-    printf("\nAktuelle Listenl‰nge: %d\n", lenght(testliste2));
+    printf("\nAktuelle Listenl√§nge: %d\n", lenght(testliste2));
 
     printf("\n\n###### Nach Funktion delete_elem. Aufgabe 3) #####\n");
     delete_elem(&testliste2, 25);
     printf("Aktuelle Liste: ");
     print_list(testliste2);
-    printf("\nAktuelle Listenl‰nge: %d\n", lenght(testliste2));
+    printf("\nAktuelle Listenl√§nge: %d\n", lenght(testliste2));
 
     printf("\n\n###### Nach Funktion sort mit Paramter 1. Aufgabe 4) #####\n");
     sort(&testliste2, 1);
     printf("Aktuelle Liste: ");
     print_list(testliste2);
-    printf("\nAktuelle Listenl‰nge: %d\n", lenght(testliste2));
+    printf("\nAktuelle Listenl√§nge: %d\n", lenght(testliste2));
 
     printf("\n\n###### Nach Funktion sort mit Paramter -1. Aufgabe 4) #####\n");
     sort(&testliste2, -1);
     printf("Aktuelle Liste: ");
     print_list(testliste2);
-    printf("\nAktuelle Listenl‰nge: %d\n", lenght(testliste2));
+    printf("\nAktuelle Listenl√§nge: %d\n", lenght(testliste2));
 
     printf("\n-------\n");
     printf("\nEnde\n");
