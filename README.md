@@ -2,8 +2,8 @@
 
 # Programming in Practise - Linked List
 
-Project assignment in the course "Programming in Practice" from summer semester 2019 during my Bachelor in Business Informatics. The task was to implement a singly linked list with several features in C. A linked list is a dynamic data structure, which can have elements added and removed without the need to create a fixed lenght beforehand. The single elements are connected one-way via a pointer, which references the following element. 
-Final Mark: 20/20 Points.
+Project assignment in the course "Programming in Practice" from summer semester 2019 during my Bachelor in Business Informatics. The task was to implement a singly linked list with several features in C. A linked list is a dynamic data structure, which can have elements added and removed without the need to create a fixed lenght beforehand. The single elements are connected one-way via a pointer, which references the following node. 
+<br> Final Mark: 20/20 Points.
 
 ## Tasks
 
@@ -20,3 +20,6 @@ Final Mark: 20/20 Points.
 	*	void sort(list * l, int m) - Sorting the given list with bubble sort. Ascending if m >= 0. Ascending, but using the  absolute positive values else.
 		
 3. Within the main function, implement a list with 3 elements and test the prior functions.
+
+
+## Solution
