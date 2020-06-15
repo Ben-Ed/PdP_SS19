@@ -21,7 +21,7 @@ Project assignment in the course "Programming in Practice" from summer semester 
 		
 3. Within the main function, implement a list with 3 elements and test the prior functions.
 
-
+<br>
 ## Solution
 The full solution is uploaded, too. However, I will only discuss the crucial parts. Also, bear in mind that the full solution is in german. 
 
@@ -38,11 +38,12 @@ typedef struct le listelement;
 typedef listelement * list; 
 ```
 *Value* is, surprisingly, the value of each node, while *next* is a pointer to another list element / node. Since we want the pointer to reference another structure, it needs to be declared with *struct le*.
-Additionally, we rename our structure to *listelement* and the **pointer** to our listelement *list*.
+Additionally, we rename our structure to *listelement* and the **pointer** to our listelement *list*. It is important to note that list is a pointer, as it is a references the first node of a list. <br>
+
 
 #### Exercise 1
 
-> **a)** void insert (int v, list * l).
+> **void insert (int v, list * l)**
 
 With our first function, *void insert*, we create an element carrying the value **v** within our list **l**. 
 ```c
@@ -57,4 +58,6 @@ void insert(int v, list * l) {
   *l = new;                                     //*l is now a pointer to our new list element, hence showing again on the first element of our list.
 }
 ```
-With insert, we can add new list elements to the beginning within the given list. The original first element will move to the second position, which means it is not the beginning of the list anymore. Our new beginning of the list, the element we just added, is referenced by the name of the list => The pointer of the list is a reference to the first element. 
+With insert, we can add new list elements to the beginning within the given list. The original first element will move to the second position, which means it is not the beginning of the list anymore. Our new beginning of the list, the element we just added, is referenced by the name of the list.
+
+
