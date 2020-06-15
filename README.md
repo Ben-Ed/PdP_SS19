@@ -2,8 +2,8 @@
 
 # Programming in Practise - Linked List
 
-Project assignment in the course "Programming in Practice" from summer semester 2019 during my Bachelor in Business Informatics. The task was to implement a singly linked list with several features in C. A linked list is a dynamic data structure, which can have elements added and removed without the need to create a fixed lenght beforehand. The single elements are connected one-way via a pointer, which references the following node. 
-<br> Final Mark: 20/20 Points.
+Project assignment in the course "Programming in Practice" from summer semester 2019 during my Bachelors in Business Informatics. The task was to implement a singly linked list with several features in C. A linked list is a dynamic data structure, which can have elements added and removed without the need to create a fixed lenght beforehand. The single elements are connected one-way via a pointer, which references the following node. Final Mark: 20/20 Points.
+<br> <br> The following is a small showcase of the different functions we had to implement. While this assignemt and the concept of linked list are rather basic, it still may help some folks out there. 
 
 ## Tasks
 
@@ -23,3 +23,23 @@ Project assignment in the course "Programming in Practice" from summer semester 
 
 
 ## Solution
+The full solution is uploaded, too. However, I will only discuss the crucial parts. Also, bear in mind that the full solution is in german. 
+
+#### Starting with the fundamentals
+
+We start with creating the single element of a list itself, called structure or compound datatype. 
+```c
+struct le {
+    int value;              //the elements within the nodes are integers
+    struct le * next;       //pointer to another list element
+};
+
+typedef struct le listelement;           
+typedef listelement * list; 
+```
+*Value* is, surprisingly, the value of each node, while *next* is a pointer to another list element / node. Since we want the pointer to reference another structure, it needs to be declared with *struct le*.
+Additionally, we rename our structure to *listelement* and the **pointer** to our listelement *list*.
+
+### Exercise 1
+
+> **a)** void insert.
