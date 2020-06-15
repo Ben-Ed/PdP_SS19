@@ -19,9 +19,8 @@ Project assignment in the course "Programming in Practice" from summer semester 
 	*	int delete_elem(list * l, int e) - Deleting the first occurence of the element e within the given *list*. 
 	*	void sort(list * l, int m) - Sorting the given list with bubble sort. Ascending if m >= 0. Ascending, but using the  absolute positive values else.
 		
-3. Within the main function, implement a list with 3 elements and test the prior functions.
+3. Within the main function, implement a list with 3 elements and test the prior functions. </br>
 
-<br>
 ## Solution
 The full solution is uploaded, too. However, I will only discuss the crucial parts. Also, bear in mind that the full solution is in german. 
 
