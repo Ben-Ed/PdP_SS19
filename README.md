@@ -40,6 +40,21 @@ typedef listelement * list;
 *Value* is, surprisingly, the value of each node, while *next* is a pointer to another list element / node. Since we want the pointer to reference another structure, it needs to be declared with *struct le*.
 Additionally, we rename our structure to *listelement* and the **pointer** to our listelement *list*.
 
-### Exercise 1
+#### Exercise 1
 
-> **a)** void insert.
+> **a)** void insert (int v, list * l).
+
+With our first function, *void insert*, we create an element carrying the value **v** within our list **l**. 
+```c
+void insert(int v, list * l) {
+
+  listelement * new;                            //declaring a new list element
+  new = malloc(sizeof(listelement));            //we allocate new memory for our new list element
+
+  new->value = v;                               //the value of new is now = v
+  new->next = *l;                               //*l is the pointer of our original first element. New now points to that list element, which is now the second element. 
+
+  *l = new;                                     //*l is now a pointer to our new list element, hence showing again on the first element of our list.
+}
+```
+With insert, we can add new list elements to the beginning within the given list. The original first element will move to the second position, which means it is not the beginning of the list anymore. Our new beginning of the list, the element we just added, is referenced by the name of the list => The pointer of the list is a reference to the first element. 
