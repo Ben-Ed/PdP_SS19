@@ -9,9 +9,9 @@ Project assignment in the course "Programming in Practice" from summer semester 
 
  1. Implement a linked list with the following basic functions:
 	-	void insert(int v, list * l)
-	-	void delete all(list l)
+	- 	int delete_head(list * l)
 	-	void print list(list l)
-	*	int delete_head(list * l)
+	*	void delete all(list l)
 	*	int lenght(list l)
 
 2. Add the following advanced functions:
@@ -19,7 +19,8 @@ Project assignment in the course "Programming in Practice" from summer semester 
 	*	int delete_elem(list * l, int e) - Deleting the first occurence of the element e within the given *list*. 
 	*	void sort(list * l, int m) - Sorting the given list with bubble sort. Ascending if m >= 0. Ascending, but using the  absolute positive values else.
 		
-3. Within the main function, implement a list with 3 elements and test the prior functions. </br>
+3. Within the main function, implement a list with 3 elements and test the prior functions. <br> <br />
+
 
 ## Solution
 The full solution is uploaded, too. However, I will only discuss the crucial parts. Also, bear in mind that the full solution is in german. 
@@ -37,7 +38,7 @@ typedef struct le listelement;
 typedef listelement * list; 
 ```
 *Value* is, surprisingly, the value of each node, while *next* is a pointer to another list element / node. Since we want the pointer to reference another structure, it needs to be declared with *struct le*.
-Additionally, we rename our structure to *listelement* and the **pointer** to our listelement *list*. It is important to note that list is a pointer, as it is a references the first node of a list. <br>
+Additionally, we rename our structure to *listelement* and the **pointer** to our listelement *list*. It is important to note that list is a pointer, as it is a references the first node of a list. <br> <br />
 
 
 #### Exercise 1
@@ -57,6 +58,41 @@ void insert(int v, list * l) {
   *l = new;                                     //*l is now a pointer to our new list element, hence showing again on the first element of our list.
 }
 ```
-With insert, we can add new list elements to the beginning within the given list. The original first element will move to the second position, which means it is not the beginning of the list anymore. Our new beginning of the list, the element we just added, is referenced by the name of the list.
+With insert, we can add new list elements to the beginning within the given list. The original first element will move to the second position, which means it is not the beginning of the list anymore. Our new beginning of the list, the element we just added, is referenced by the name of the list. <br> <br />
 
 
+> **int delete_head(list * l)**
+
+The next function deletes the first element of a given *list* **l**. 
+```c
+int delete_head(list * l) {
+
+  if (*l == NULL) return -1;           //returning -1 if the list is empty
+  
+  list old = *l;                                 
+  *l = old->next;                      //*l is now a pointer on the second element (our new first element)
+
+  free(old);                           //we free the *old* pointer
+
+  return 0;    
+}
+```
+After we delete the first element (the head), the list now points to the new first element, our prior second element. <br> <br />
+
+> **int delete_head(list * l)**
+
+The next function deletes the first element of a given *list* **l**. 
+```c
+int delete_head(list * l) {
+
+  if (*l == NULL) return -1;           //returning -1 if the list is empty
+  
+  list old = *l;                                 
+  *l = old->next;                      //*l is now a pointer on the second element (our new first element)
+
+  free(old);                           //we free the *old* pointer
+
+  return 0;    
+}
+```
+After we delete the first element (the head), the list now points to the new first element, our prior second element. <br> <br />
