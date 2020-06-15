@@ -196,15 +196,19 @@ The following function implements a bubble sort algorithm. Our m decides whether
       tmp = *l;       
    }
 
-while(* l != NULL && (*l)->next != NULL){ 
+   while(* l != NULL && (*l)->next != NULL){ 
     
-	if((*l)->next->value >= (*l)->value) *l=(*l)->next;
-	else {
-		swap(&(*l)->value, &(*l)->next->value);    //the following value is < than the current one, hence we need to swap them
-		*l = tmp;              
+      if((*l)->next->value >= (*l)->value) *l=(*l)->next;
+      else {
+      	swap(&(*l)->value, &(*l)->next->value);    //the following value is < than the current one, hence we need to swap them
+	*l = tmp;              
 		}
 	}
 	*l = tmp;       
 }
 ```
-If we iterate with l and tmp being one ahead, we are able to both delete e and connect the two neighbouring elements. 
+Our result is a sorted linked list in ascending order. 
+<br> <br />
+Exercise 3 - the implementation and testing - can be found in the full solution. 
+
+## C ya around
