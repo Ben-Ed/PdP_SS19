@@ -104,6 +104,7 @@ The rest of the first exercise can be found in the full solution. <br> <br />
 
 ---
 <br>
+
 #### Exercise 2
 
 > **int delete_pos(list * l, int pos)**
@@ -171,7 +172,7 @@ return 0;
 ```
 If we iterate with l and tmp being one ahead, we are able to both delete e and connect the two neighbouring elements. 
 
-<br> <br />
+<br>
 
 ---
 
