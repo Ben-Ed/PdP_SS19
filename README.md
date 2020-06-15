@@ -144,7 +144,7 @@ This function is similiar to the prior. However, instead of stopping at a given 
 ```c
 int delete_elem(list * l, int e) {
 
-if((*l)->value == e) {delete_head(l);}
+if((*l)->value == e) delete_head(l);
 
 list backup = *l;                           //Using a backup to reference the beginning of the list
 list tmp = *l;                              //Always one ahead of our normal pointer *l
@@ -157,8 +157,7 @@ while((*l)->next != NULL) {
     free(tmp);
     tmp = NULL;                              
 
-    break;
-  }
+    break;}
 
   *l = tmp;                                 //*l and tmp iterate through the list until one list if clause is fulfilled
   if((*l)->next == NULL) {    
@@ -176,38 +175,56 @@ If we iterate with l and tmp being one ahead, we are able to both delete e and c
 
 ---
 
+
 <br />
 
-> **int delete_elem(list * l, int e)**
+> **void sort(list * l, int m)**
 
-This function is similiar to the prior. However, instead of stopping at a given parameter in form of an index, we iterate until we reached the first occurence of the *element **e***.
+The following function implements a bubble sort algorithm. Our m decides whether we use the original elements within the list (if m>=0), or else, the absolute positive values of the elements. We use a swap function to swap (surprising, isn't it) neighbouring nodes. It can be found in the full solution as well.
 ```c
-int delete_elem(list * l, int e) {
+  void sort(list * l, int m) {            
+     
+  list tmp = *l;                               //Pointer tmp zeigt wie *l aufs erste Listenelement
 
-if((*l)->value == e) {delete_head(l);}
 
-list backup = *l;                           //Using a backup to reference the beginning of the list
-list tmp = *l;                              //Always one ahead of our normal pointer *l
+   if(m < 0) {                                 //bei negativen Parametern wird die gesamte Liste durchgegangen, um die negativen Zahlen in ihre Betr�ge umzuwandeln
 
-while((*l)->next != NULL) {
-  tmp = (*l)->next;                   
+     tmp = *l;
 
-  if(tmp->value == e) {
-    (*l)->next = tmp->next;                 //preventing a rift
-    free(tmp);
-    tmp = NULL;                              
+     while(tmp != NULL) {                     //durchl�uft die Liste, bis tmp auf Null zeigt => Listenende
+    
+      if(tmp->value < 0) {                    //falls der aktuelle Wert negativ ist
 
-    break;
-  }
+      tmp->value = tmp->value / (-1);         //wird er in den Betrag gewandelt. x = -x / (-1)
 
-  *l = tmp;                                 //*l and tmp iterate through the list until one list if clause is fulfilled
-  if((*l)->next == NULL) {    
-    *l = backup;
-    return -1;}
-    }
+      }
 
-*l = backup;   
-return 0;
+      tmp = tmp->next;                        //tmp zieht ein Listenelement weiter
+
+     }
+      tmp = *l;                               //tmp zeigt letztendlich wieder an den Listenanfang
+   }
+
+
+
+while(* l != NULL && (*l)->next != NULL){      //solange die Liste nicht am Ende ist (wenn beide Pointer auf NUll zeigen)
+    
+		if((*l)->next->value >= (*l)->value){      //Ist der folgende Wert gr��er oder gleich des aktuellen Werts, m�ssen die jeweiligen 2 Werte nicht getauscht weerden
+		
+			*l=(*l)->next;                            //der Pointer *l r�ckt ein Listenelement weiter
+		
+		}
+		
+		else {                                     //ansonsten ist der folgende Wert kleiner als der aktuelle => die Werte m�ssen getauscht werden
+		
+		swap(&(*l)->value, &(*l)->next->value);    //aufruf der Hilfsfunktion swap um die beiden Werte zu vertauschen
+		
+		*l = tmp;                                  //*l zeigt nun wieder auf den Listenanfang, damit die Liste erneut von vorne beginnen kann, die Elemente zu untersuchen
+		
+		}
+	}
+	
+	*l = tmp;                                    //*l zeigt nun wieder an den Listenanfang
 }
 ```
 If we iterate with l and tmp being one ahead, we are able to both delete e and connect the two neighbouring elements. 
